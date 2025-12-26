@@ -78,21 +78,6 @@
       gap: 0.75rem;
     }
 
-    /* Use logo assets instead of the AG monogram if you wish:
-       Replace .brand-mark with an <img> tag pointing at anvanta-mark or horizontal lockup.
-    */
-   <div class="brand">
-  <a href="#" style="display:flex;align-items:center;gap:0.65rem;">
-    <img src="anvanta-logo-horizontal.png"
-         alt="Anvanta Global Ltd"
-         style="height:32px; display:block;">
-    <div class="brand-text">
-      <div class="brand-name">Anvanta Global Ltd</div>
-      <div class="brand-tagline">Private Investment &amp; Holdings</div>
-    </div>
-  </a>
-</div>
-
     .brand-text {
       display: flex;
       flex-direction: column;
@@ -553,15 +538,18 @@
     <header>
       <div class="nav">
         <div class="brand">
-          <div class="brand-mark">
-            <!-- If you prefer the actual logo, replace this with:
-                 <img src="anvanta-logo-horizontal.jpg" alt="Anvanta Global" style="height:32px;"> -->
-            <span>AV</span>
-          </div>
-          <div class="brand-text">
-            <div class="brand-name">Anvanta Global Ltd</div>
-            <div class="brand-tagline">Private Investment &amp; Holdings</div>
-          </div>
+          <a href="#" style="display:flex;align-items:center;gap:0.75rem;">
+            <!-- adjust .png/.jpg to match the real filename -->
+            <img
+              src="anvanta-logo-horizontal.png"
+              alt="Anvanta Global Ltd"
+              style="height:32px;display:block;"
+            />
+            <div class="brand-text">
+              <div class="brand-name">Anvanta Global Ltd</div>
+              <div class="brand-tagline">Private Investment &amp; Holdings</div>
+            </div>
+          </a>
         </div>
         <nav class="nav-links">
           <a href="#about">About</a>
