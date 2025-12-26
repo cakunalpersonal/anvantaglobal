@@ -1,269 +1,811 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anvanta Global Ltd</title>
-  <meta name="description" content="Private Investment & Holdings — Long-term aligned capital stewardship." />
-
+  <meta name="description" content="Anvanta Global Ltd – a privately held investment and holding company with a long-term, partnership-oriented approach.">
   <style>
-    :root{
-      /* Core palette (navy + rose-gold/copper) */
-      --bg0:#070A12;
-      --bg1:#0B1224;
-      --bg2:#111B33;
-
-      --text:#F2F4F8;
-      --muted:#A9B2C6;
-
-      /* Rose-gold / copper accents */
-      --accent:#D9B2A6;   /* rose gold */
-      --accent2:#BA745F;  /* deep bronze/copper */
-      --ring: rgba(217,178,166,.35);
+    :root {
+      /* Core brand tones – tuned to the new logo */
+      --bg: #05060a;
+      --bg-alt: #0b0d14;
+      --accent: #c98a5a;
+      --accent-strong: #e0a472;
+      --accent-soft: rgba(201, 138, 90, 0.25);
+      --text: #f5f5f5;
+      --muted: #a2a6b5;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(11, 13, 20, 0.94);
+      --max-width: 1120px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-      color:var(--text);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
       background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(217,178,166,.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(186,116,95,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 35%, var(--bg2));
-      min-height:100vh;
-    }
-
-    .container{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 22px 18px 60px;
-    }
-
-    /* Header */
-    .topbar{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      padding: 14px 18px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-      backdrop-filter: blur(10px);
-    }
-
-    .logo-wrap{
-      width: 74px;         /* makes logo visible */
-      height: 74px;
-      border-radius: 16px;
-      background: radial-gradient(60px 60px at 30% 30%, rgba(217,178,166,.22), transparent 60%),
-                  linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      flex: 0 0 auto;
-    }
-
-    .logo{
-      width: 58px;         /* controls logo size INSIDE box */
-      height: 58px;
-      object-fit: contain;
-      filter:
-        drop-shadow(0 8px 18px rgba(0,0,0,.55))
-        drop-shadow(0 0 14px rgba(217,178,166,.12));
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      min-width:0;
-    }
-
-    .brand h1{
-      margin:0;
-      font-size: 28px;
-      letter-spacing: .12em;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height:1.1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand .sub{
-      margin:0;
-      color: var(--muted);
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      font-size: 13px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Hero */
-    .hero{
-      margin-top: 26px;
-      padding: 44px 22px;
-      border-radius: 22px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)),
-        radial-gradient(900px 500px at 25% 0%, rgba(217,178,166,.10), transparent 60%),
-        radial-gradient(700px 420px at 85% 10%, rgba(186,116,95,.10), transparent 55%);
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 16px 60px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(217,178,166,.30);
-      background: rgba(7,10,18,.35);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+        radial-gradient(circle at top center, #171920 0, #05060a 52%, #020307 100%);
       color: var(--text);
-      font-size: 14px;
-      letter-spacing: .02em;
-      margin-bottom: 18px;
-    }
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background: linear-gradient(180deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(217,178,166,.10);
-    }
-
-    .hero h2{
-      margin: 0 0 10px 0;
-      font-size: 34px;
-      letter-spacing: .02em;
-      line-height: 1.15;
-    }
-
-    .hero p{
-      margin: 0 0 22px 0;
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .card{
-      padding: 16px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.012));
-    }
-    .card h3{
-      margin:0 0 8px 0;
-      font-size: 14px;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      color: rgba(242,244,248,.92);
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .footer{
-      margin-top: 18px;
-      color: rgba(169,178,198,.75);
-      font-size: 12px;
-      letter-spacing: .06em;
-    }
-
-    a{
-      color: var(--accent);
+    a {
+      color: inherit;
       text-decoration: none;
     }
-    a:hover{ text-decoration: underline; }
 
-    /* Responsive */
-    @media (max-width: 860px){
-      .brand h1{ font-size: 22px; }
-      .brand .sub{ font-size: 12px; letter-spacing: .20em; }
-      .grid{ grid-template-columns: 1fr; }
-      .hero{ padding: 34px 18px; }
-      .hero h2{ font-size: 28px; }
-      .logo-wrap{ width: 66px; height: 66px; border-radius: 14px; }
-      .logo{ width: 52px; height: 52px; }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 6, 10, 0.96),
+        rgba(5, 6, 10, 0.8)
+      );
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Use logo assets instead of the AG monogram if you wish:
+       Replace .brand-mark with an <img> tag pointing at anvanta-mark or horizontal lockup.
+    */
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 34%;
+      background:
+        radial-gradient(circle at 25% 20%, #f5dac9 0, #e0a472 40%, #9a6240 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.65),
+        0 0 18px rgba(201, 138, 90, 0.55);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #1a0e07;
+    }
+
+    .brand-mark span {
+      letter-spacing: 0.12em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.06rem;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.7rem;
+      font-size: 0.82rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.95rem;
+      border: 1px solid var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      background: rgba(11, 13, 20, 0.9);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.8rem 1.4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.8rem;
+      align-items: center;
+      padding-top: 3.1rem;
+      padding-bottom: 1.4rem;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(201, 138, 90, 0.28);
+      background: rgba(11, 13, 20, 0.9);
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-label-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 0 4px rgba(201, 138, 90, 0.35);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3vw + 1rem, 2.9rem);
+      line-height: 1.1;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #f2d5c4, #e0a472, #c57949);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.9rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.78rem 1.6rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: linear-gradient(135deg, #f2d5c4, #e0a472, #c57949);
+      color: #220f08;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.03);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.72rem 1.5rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: rgba(5, 6, 10, 0.8);
+      cursor: pointer;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      border-radius: 22px;
+      border: 1px solid var(--border-soft);
+      background:
+        radial-gradient(circle at top, rgba(201, 138, 90, 0.16), transparent 55%),
+        var(--card-bg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.6rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201, 138, 90, 0.22), transparent 50%);
+      opacity: 0.35;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-card-heading {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      padding: 0.7rem 0.75rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(5, 6, 10, 0.85);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .stat-value {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.46rem 0.95rem;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 10, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.75rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .section-title-wrap {
+      margin-bottom: 1.6rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 34rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(201, 138, 90, 0.08), transparent 55%),
+                  rgba(7, 8, 14, 0.96);
+      padding: 1.2rem 1.2rem 1.3rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      margin-bottom: 0.32rem;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.42rem;
+    }
+
+    .card-body {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 0.3rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+    }
+
+    .contact-section {
+      padding-bottom: 3.2rem;
+    }
+
+    .contact-box {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--accent-soft);
+      background:
+        radial-gradient(circle at top left, rgba(201, 138, 90, 0.18), transparent 55%),
+        rgba(7, 8, 14, 0.98);
+      padding: 1.6rem 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .contact-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .contact-email {
+      font-size: 0.95rem;
+      margin-top: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-email a {
+      color: var(--accent-strong);
+    }
+
+    .legal-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.9rem;
+      max-width: 32rem;
+    }
+
+    .contact-right {
+      justify-self: end;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      background: rgba(3, 4, 8, 0.98);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.4rem 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .contact-box {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+      }
+      .contact-right {
+        justify-self: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      .section {
+        padding-inline: 1.1rem;
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 2.3rem;
+      }
+      .hero-title {
+        font-size: 1.95rem;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-
-    <header class="topbar">
-      <div class="logo-wrap">
-        <!-- Cache-busting trick: ?v=2 (change number when you update logo) -->
-        <img class="logo" src="assets/anvanta-logo.png?v=2" alt="Anvanta logo" />
-      </div>
-
-      <div class="brand">
-        <h1>ANVANTA GLOBAL LTD</h1>
-        <p class="sub">PRIVATE INVESTMENT &amp; HOLDINGS</p>
+  <div class="page">
+    <!-- Header / Nav -->
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="brand-mark">
+            <!-- If you prefer the actual logo, replace this with:
+                 <img src="anvanta-logo-horizontal.jpg" alt="Anvanta Global" style="height:32px;"> -->
+            <span>AV</span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">Anvanta Global Ltd</div>
+            <div class="brand-tagline">Private Investment &amp; Holdings</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#focus">Focus Areas</a>
+          <a href="#approach">Approach</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </nav>
       </div>
     </header>
 
-    <main class="hero">
-      <div class="pill">
-        <span class="dot"></span>
-        <span>Privately held • Long-term aligned</span>
-      </div>
-
-      <h2>Built for enduring capital.</h2>
-      <p>
-        Anvanta Global Ltd is a private holding platform focused on disciplined stewardship,
-        selective investments, and long-horizon value creation across cycles.
-      </p>
-
-      <section class="grid">
-        <div class="card">
-          <h3>Mandate</h3>
-          <p>Preserve capital, compound responsibly, and build multi-generational resilience.</p>
-        </div>
-        <div class="card">
-          <h3>Approach</h3>
-          <p>Quiet execution, strong governance, and alignment over short-term noise.</p>
-        </div>
-        <div class="card">
-          <h3>Contact</h3>
-          <p>
-            For verified correspondence: <a href="mailto:contact@anvantaglobal.com">contact@anvantaglobal.com</a>
+    <main>
+      <!-- Hero -->
+      <section class="section hero">
+        <div>
+          <div class="hero-label">
+            <span class="hero-label-dot"></span>
+            <span>Privately held &bull; Long-term aligned</span>
+          </div>
+          <h1 class="hero-title">
+            A quiet home for <span>global, long-term capital.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Anvanta Global Ltd is a privately held investment and holding company,
+            consolidating diversified interests across technology, infrastructure,
+            real assets and private ventures with a long-term, partnership-oriented outlook.
           </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Introduce an opportunity</a>
+            <a href="#about" class="btn-outline">Learn more</a>
+          </div>
+          <p class="hero-note">
+            We do not solicit public funds. All activities are conducted on a private, invitation-only basis.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="Key facts">
+          <div class="hero-card-heading">Operating Profile</div>
+          <div class="hero-card-grid">
+            <div class="stat">
+              <div class="stat-label">Jurisdiction</div>
+              <div class="stat-value">British Virgin Islands</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Mandate</div>
+              <div class="stat-value">Private Holdings</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Horizon</div>
+              <div class="stat-value">Long-Term</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Style</div>
+              <div class="stat-value">Partnership-driven</div>
+            </div>
+          </div>
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Selective, thesis-led deployment of capital.</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="section-title-wrap">
+          <div class="section-kicker">About</div>
+          <h2 class="section-title">A consolidated platform for private holdings</h2>
+          <p class="section-subtitle">
+            Anvanta Global Ltd was established as a dedicated platform to consolidate
+            private investments, strategic shareholdings and cross-border interests
+            under a single, flexible international structure.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">Role</div>
+            <div class="card-title">Investment Holding Company</div>
+            <p class="card-body">
+              Anvanta Global functions as a non-operating holding company, owning
+              stakes in operating businesses, project vehicles and financial assets.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-tag">Philosophy</div>
+            <div class="card-title">Quiet, deliberate, long term</div>
+            <p class="card-body">
+              The company favours concentrated, conviction-driven positions rather
+              than broad, passive diversification, with a focus on governance and downside protection.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-tag">Partners</div>
+            <div class="card-title">Selective relationships</div>
+            <p class="card-body">
+              Collaboration is pursued with founders, operating partners and institutions
+              that value clarity, integrity and alignment of interests over short-term outcomes.
+            </p>
+          </div>
         </div>
       </section>
 
-      <div class="footer">
-        © <span id="y"></span> Anvanta Global Ltd. All rights reserved.
-      </div>
+      <!-- Focus Areas -->
+      <section class="section" id="focus">
+        <div class="section-title-wrap">
+          <div class="section-kicker">Focus Areas</div>
+          <h2 class="section-title">Where Anvanta Global is most active</h2>
+          <p class="section-subtitle">
+            The company’s mandate is flexible, but capital is primarily deployed into real,
+            scalable and defensible opportunities with clear value-creation levers.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title">Technology &amp; Digital Infrastructure</div>
+            <p class="card-body">
+              Strategic positions in technology, identity, border and digital infrastructure platforms,
+              as well as supporting ecosystem businesses.
+            </p>
+            <ul class="list">
+              <li>Mission-critical software &amp; platforms</li>
+              <li>Data, identity and transaction infrastructure</li>
+              <li>Asset-light, scalable technology ventures</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Real Assets &amp; Yield Strategies</div>
+            <p class="card-body">
+              Targeted exposure to income-generating assets and project vehicles with
+              clear, contracted or visible cash flows.
+            </p>
+            <ul class="list">
+              <li>Commercial and special-use real estate</li>
+              <li>Long-term concessions &amp; infrastructure</li>
+              <li>Structured yield and asset-backed strategies</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Private Ventures &amp; Special Situations</div>
+            <p class="card-body">
+              Opportunistic allocations into privately negotiated situations where
+              active stewardship and structuring can unlock disproportionate value.
+            </p>
+            <ul class="list">
+              <li>Founder-led &amp; family businesses</li>
+              <li>Recapitalisations and transitions</li>
+              <li>Cross-border or multi-jurisdiction structures</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Approach -->
+      <section class="section" id="approach">
+        <div class="section-title-wrap">
+          <div class="section-kicker">Approach</div>
+          <h2 class="section-title">How we think about capital and partnerships</h2>
+          <p class="section-subtitle">
+            Anvanta Global combines a conservative balance-sheet mindset with an entrepreneurial,
+            operator-aware lens on risk, governance and execution.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title">Long-term orientation</div>
+            <p class="card-body">
+              Decisions are made with a multi-year horizon, favouring durability of
+              cash flows, governance quality and resilience across cycles.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Structured, risk-aware</div>
+            <p class="card-body">
+              Preference for clearly structured arrangements, aligned incentives,
+              and transparent risk-sharing with counterparties.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Low profile, high conviction</div>
+            <p class="card-body">
+              The company operates quietly and privately, engaging a limited number
+              of counterparties where it can add strategic value beyond capital.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact-section" id="contact">
+        <div class="section-title-wrap">
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Introductions &amp; opportunities</h2>
+        </div>
+
+        <div class="contact-box">
+          <div>
+            <p class="contact-text">
+              Anvanta Global Ltd engages on a selective basis with founders, operators,
+              advisors and institutions where there is clear strategic fit.
+            </p>
+            <p class="contact-email">
+              For introductions or confidential opportunities, please write to:<br />
+              <a href="mailto:contact@anvantaglobal.com">contact@anvantaglobal.com</a>
+            </p>
+            <p class="legal-note">
+              Anvanta Global Ltd does not offer services to the general public, does not
+              market collective investment schemes, and does not accept deposits.
+              Nothing on this site constitutes an offer or solicitation of securities,
+              financial products or investment advice.
+            </p>
+          </div>
+          <div class="contact-right">
+            <div>British Virgin Islands &middot; Private Investment Holding Company</div>
+            <div>Further information is available to counterparties on request.</div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <span>© <span id="year"></span> Anvanta Global Ltd. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#focus">Focus Areas</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
