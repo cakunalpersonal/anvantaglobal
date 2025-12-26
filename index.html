@@ -97,7 +97,25 @@
       text-transform: uppercase;
       letter-spacing: 0.20em;
     }
+      .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
 
+    .brand-logo {
+      height: 52px;        /* try 44–52px; increase/decrease to taste */
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .brand-logo {
+        height: 36px;      /* slightly smaller on phones */
+      }
+      .brand-link {
+        gap: 0.8rem;
+      }
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -538,18 +556,17 @@
     <header>
       <div class="nav">
         <div class="brand">
-          <a href="#" style="display:flex;align-items:center;gap:0.75rem;">
-            <!-- adjust .png/.jpg to match the real filename -->
-            <img
-              src="anvanta-logo-horizontal.png"
-              alt="Anvanta Global Ltd"
-              style="height:32px;display:block;"
-            />
-            <div class="brand-text">
-              <div class="brand-name">Anvanta Global Ltd</div>
-              <div class="brand-tagline">Private Investment &amp; Holdings</div>
-            </div>
-          </a>
+         <a href="#" class="brand-link">
+  <img
+    src="anvanta-logo-horizontal.png"
+    alt="Anvanta Global Ltd"
+    class="brand-logo"
+  />
+  <div class="brand-text">
+    <div class="brand-name">Anvanta Global Ltd</div>
+    <div class="brand-tagline">Private Investment &amp; Holdings</div>
+  </div>
+</a>
         </div>
         <nav class="nav-links">
           <a href="#about">About</a>
