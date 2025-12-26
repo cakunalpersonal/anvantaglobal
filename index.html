@@ -81,22 +81,17 @@
     /* Use logo assets instead of the AG monogram if you wish:
        Replace .brand-mark with an <img> tag pointing at anvanta-mark or horizontal lockup.
     */
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 34%;
-      background:
-        radial-gradient(circle at 25% 20%, #f5dac9 0, #e0a472 40%, #9a6240 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.65),
-        0 0 18px rgba(201, 138, 90, 0.55);
-      font-weight: 700;
-      font-size: 0.82rem;
-      color: #1a0e07;
-    }
+   <div class="brand">
+  <a href="#" style="display:flex;align-items:center;gap:0.65rem;">
+    <img src="anvanta-logo-horizontal.jpg"
+         alt="Anvanta Global Ltd"
+         style="height:32px; display:block;">
+    <div class="brand-text">
+      <div class="brand-name">Anvanta Global Ltd</div>
+      <div class="brand-tagline">Private Investment &amp; Holdings</div>
+    </div>
+  </a>
+</div>
 
     .brand-mark span {
       letter-spacing: 0.12em;
